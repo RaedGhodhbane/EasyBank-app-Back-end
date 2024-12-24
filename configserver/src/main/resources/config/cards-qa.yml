@@ -1,0 +1,11 @@
+build:
+  version: "2.0"
+
+cards:
+  message: "Welcome to EasyBank cards related QA APIs"
+  contactDetails:
+    name: "Smitha Ray - QA Lead"
+    email: "smitha@easybank.com"
+  oncallSupport:
+    - (33) 655555651
+    - (33) 644444752

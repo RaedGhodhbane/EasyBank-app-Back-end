@@ -1,0 +1,11 @@
+build:
+  version: "3.0"
+
+loans:
+  message: "Welcome to EasyBank loans related local APIs"
+  contactDetails:
+    name: "Raed Ghodhbane - Developer"
+    email: "raed@easybank.com"
+  oncallSupport:
+    - (33) 633333454
+    - (33) 644444567

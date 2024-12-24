@@ -1,0 +1,11 @@
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to EasyBank accounts related local APIs"
+  contactDetails:
+    name: "Raed Ghodhbane - Developer"
+    email: "raed@easybank.com"
+  oncallSupport:
+    - (33) 633333454
+    - (33) 644444567

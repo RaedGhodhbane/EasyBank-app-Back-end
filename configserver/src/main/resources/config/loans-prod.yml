@@ -1,0 +1,11 @@
+build:
+  version: "1.0"
+
+loans:
+  message: "Welcome to EasyBank loans related prod APIs"
+  contactDetails:
+    name: "Reine Aishwarya - Product Owner"
+    email: "aishwarya@easybank.com"
+  oncallSupport:
+    - (33) 698765433
+    - (33) 667584922
