@@ -1,20 +1,28 @@
 server:
   port: 8080
+
 spring:
   application:
     name: "accounts"
   profiles:
     active: "prod"
   datasource:
-    url: jdbc:mysql://localhost:3306/accountsdb
-    username: root
-    password: root
+    # URL pour H2, ici on utilise H2 en mode mémoire (in-memory)
+    url: jdbc:h2:mem:accountsdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
 
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update  # Changez à "create-drop" si vous voulez recréer la base à chaque démarrage
+    database-platform: org.hibernate.dialect.H2Dialect  # Assurez-vous d'utiliser le bon dialecte H2
+
   sql:
     init:
-      mode: always
+      mode: always  # Pour exécuter les scripts de création de base de données au démarrage
+
   config:
     import: "optional:configserver:http://localhost:8071/"
 
@@ -29,3 +37,28 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+endpoints:
+  shutdown:
+    enabled: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+
+info:
+  app:
+    name: "accounts"
+    description: "Easy Bank Accounts Application"
+    version: "1.0.0"

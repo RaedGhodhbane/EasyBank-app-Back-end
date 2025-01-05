@@ -6,14 +6,19 @@ spring:
   profiles:
     active: "prod"
   datasource:
-    url: jdbc:mysql://localhost:3307/cardsdb
-    username: root
-    password: root
+    url: jdbc:h2:mem:cardsdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE  # Utilisation de la base en mémoire H2
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+
   jpa:
-    show-sql: true
+    show-sql: true  # Affichage des requêtes SQL dans la console
+    hibernate:
+      ddl-auto: update  # Ajustez en fonction de votre gestion des schémas
+    database-platform: org.hibernate.dialect.H2Dialect  # Déclaration du dialecte H2 pour Hibernate
   sql:
     init:
-      mode: always
+      mode: always  # Permet d'exécuter les scripts SQL au démarrage de l'application
   config:
     import: "optional:configserver:http://localhost:8071"
 
@@ -28,3 +33,27 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+endpoints:
+  shutdown:
+    enabled: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+
+info:
+  app:
+    name: "cards"
+    description: "Easy Bank Cards Application"
+    version: "1.0.0"
