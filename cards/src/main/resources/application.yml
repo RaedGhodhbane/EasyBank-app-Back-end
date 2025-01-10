@@ -57,3 +57,8 @@ info:
     name: "cards"
     description: "Easy Bank Cards Application"
     version: "1.0.0"
+logging:
+  level:
+    com:
+      easybank:
+        cards: DEBUG

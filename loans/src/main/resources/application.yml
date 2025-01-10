@@ -57,3 +57,8 @@ info:
     name: "loans"
     description: "Easy Bank Loans Application"
     version: "1.0.0"
+logging:
+  level:
+    com:
+      easybank:
+        loans: DEBUG
