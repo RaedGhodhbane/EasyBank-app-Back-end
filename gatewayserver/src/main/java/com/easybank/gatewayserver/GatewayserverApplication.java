@@ -22,7 +22,8 @@ public class GatewayserverApplication {
 						   .path("/easybank/accounts/**")
 						   .filters(f -> f.rewritePath("/easybank/accounts/(?<segment>.*)","/${segment}")
 								   .addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
-								   .circuitBreaker(config -> config.setName("accountsCircuitBreaker")))
+								   .circuitBreaker(config -> config.setName("accountsCircuitBreaker")
+										   .setFallbackUri("forward:/contactSupport")))
 								.uri("lb://ACCOUNTS"))
 						.route(p -> p
 						.path("/easybank/cards/**")
