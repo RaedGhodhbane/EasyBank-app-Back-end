@@ -18,7 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -256,6 +255,7 @@ import org.springframework.web.bind.annotation.*;
         )
 @GetMapping("/contact-info")
         public ResponseEntity<LoansContactInfoDTO> getContactInfo() {
+            logger.debug("Invoked Loans contact-info API");
             return ResponseEntity
                     .status(HttpStatus.OK)
                     .body(loansContactInfoDTO);
