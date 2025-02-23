@@ -108,6 +108,16 @@
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.6.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -134,7 +144,7 @@
 				<version>3.3.2</version>
 				<configuration>
 					<to>
-						<image>raedgh/${project.artifactId}:s12</image>
+						<image>raedgh/${project.artifactId}:s13</image>
 					</to>
 				</configuration>
 			</plugin>
